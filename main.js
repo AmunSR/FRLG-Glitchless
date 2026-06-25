@@ -48,7 +48,7 @@ function updateAll() {
         r1.innerHTML = `
         <ul>
             <li>Can grab the Potion from mart guy.</li>
-            <li>Kill any level 2 or 3 Pidgey/Rattata along the way (<b>do not</b> kill two level 2 Pidgey).</li>
+            <li>Kill any level 2 or 3 Pidgey/Rattata along the way (<b>do not</b> kill level 2 Pidgey + level 2 something).</li>
             <ul>
                 <li><b>Do not</b> kill a level 3 Pidgey.</li>
             </ul>
@@ -59,7 +59,7 @@ function updateAll() {
         r1.innerHTML = `
         <ul>
             <li>Can grab the Potion from mart guy.</li>
-            <li>Kill any level 2 or 3 Pidgey/Rattata along the way (<b>do not</b> kill two level 2 Pidgey)</li>
+            <li>Kill any level 2 or 3 Pidgey/Rattata along the way (<b>do not</b> kill level 2 Pidgey + level 2 something).</li>
             <li>Swap Tail Whip with Tackle turn 1 before reaching level 7 (Select + A + A).</li>
             <li>Catch Pidgey/Rattata if you come across them (Bubble/Tackle once to weaken).</li>
         </ul>`;
