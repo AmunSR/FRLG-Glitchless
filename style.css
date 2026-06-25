@@ -1,0 +1,115 @@
+body {
+    font-family: Arial;
+}
+main, header {
+    line-height: 25px;
+}
+#stats label {
+    display: inline-block;
+    width: 80px;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+.speedtie {
+    color: darkorange;
+    text-align: right;
+    font-weight: bold;
+    margin-left: auto;
+}
+div {
+    display: flex;
+    width: 100%;
+}
+
+.normal {
+    color: gray;
+    font-weight: bold;
+}
+.water, .awakening {
+    color: cornflowerblue;
+    font-weight: bold; }
+.grass, .repel {
+    color: green;
+    font-weight: bold;
+}
+.bug {
+    color: yellowgreen;
+    font-weight: bold;
+}
+.rock {
+    color: #b8a038;
+    font-weight: bold;
+}
+.ground {
+    color: sandybrown;
+    font-weight: bold;
+}
+.poison, .potion {
+    color: mediumpurple;
+    font-weight: bold;
+}
+
+.antidote, .paralyze {
+    color: goldenrod;
+    font-weight: bold;
+}
+.torrent {
+    text-decoration: underline;
+}
+.persim {
+    color: darksalmon;
+    font-weight: bold;
+}
+.blue {
+    color: steelblue;
+    font-weight: bold;
+}
+.red {
+    color: red;
+    font-weight: bold;
+}
+.dark {
+    color: #6F4E37;
+    font-weight: bold;
+}
+.psychic {
+    color: deeppink;
+    font-weight: bold;
+}
+.oddish {
+    color: royalblue;
+    font-weight: bold;
+}
+.fighting {
+    color: #d67873;
+    font-weight: bold;
+}
+.nidoranf {
+    color: mediumaquamarine;
+    font-weight: bold;
+}
+.elixir {
+    font-weight: bold;
+}
+.spearow {
+    color: firebrick;
+    font-weight: bold;
+}
+.electric {
+    color: #ffd424;
+    font-weight: bold;
+}
+.fire {
+    color: darkorange;
+    font-weight: bold;
+}
+.ghost {
+    color: indigo;
+    font-weight: bold;
+}
+.dragon {
+    color: blue;
+    font-weight: bold;
+}

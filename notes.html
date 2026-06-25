@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Any% Glitchless | FRLG</title>
+    <link rel="icon" href="img/Untitled.png">
+    <script src="text.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>FireRed/LeafGreen -- Any% Glitchless (WR Route)</h1>
+    <h4>Shoutouts to Bang, Ana and Flareon for additional help.</h4>
+    <h6>For god's sake, please don't look at this amateur code XD</h6>
+    <p>This guide assumes these IV settings, so please don't follow this if you have lower requirements:</p>
+    <table>
+        <tr><th>HP</th><th colspan="3"></th></tr>
+        <tr><th>Attack</th><th>21</th><th>4</th><th></th></tr>
+        <tr><th>Defense</th><th>16</th><td></td><td></td></tr>
+        <tr><th>Sp. Atk</th><td></td><td></td><th>30</th></tr>
+        <tr><th>Sp. Def</th><td></td><td></td><td></td></tr>
+        <tr><th>Speed</th><th></th><th>21</th></tr>
+    </table>
+    <hr>
+    <h2>Legacy content</h2>
+    <p>Inspiration for these notes from <a href="https://frlg-speedruns.netlify.app/routes/any-squirtle/">here</a>.</p>
+    <p>This guide follows <a href="https://docs.google.com/document/u/0/d/1tBOEP3BJKO0vwRtarRoL_AVQ8NIqpmrmh4wTTdneSKc/mobilebasic"> WR's notes</a> with some additional stuff.</p>
+    <p><a href="https://docs.google.com/document/d/1pgrfEiNUoO4p8ZDHm1OuC9Y2Uq_Y-Gx5/edit">Thunder's notes</a> (you won't have access).</p>
+    <p><a href="https://docs.google.com/spreadsheets/d/1zNtXl0dtD99EMK9dRTpPzYeSdmvayhaO7_gTl2VXzhM/edit?gid=23887254#gid=23887254">HP sheet</a>.</p>
+    <br>
+    <hr>
+</header>
+<section id="stats">
+    <label for="nat">Nature: </label><select id="nat">
+    <option value="rash" selected>Rash</option>
+    <option value="mild">Mild</option>
+    <option value="modest">Modest</option>
+</select><br>
+    <label for="healpoints">HP: </label><input type="number" id="healpoints" value="31" min="0" max="31"><br>
+    <label for="attack">Attack: </label><input type="number" id="attack" value="31" min="4" max="31"><br>
+    <label for="defense">Defense: </label><input type="number" id="defense" value="31" min="0" max="31"><br>
+    <label for="spattack">Sp. Atk: </label><input type="number" id="spattack" value="31" min="30" max="31"><br>
+    <label for="spdefense">Sp. Def: </label><input type="number" id="spdefense" value="31" min="0" max="31"><br>
+    <label for="speed">Speed: </label><input type="number" id="speed" value="31" min="21" max="31"><br>
+    <button>Submit</button>
+    <hr>
+</section>
+<main>
+    <h2>Lab</h2>
+    <ul>
+        <li><h3>Rival 1</h3></li>
+        <ul>
+            <li>
+                <section id="lab">
+                    <div>
+                        <span>Bulbasaur: (Tail Whip), Tackle spam</span>
+                        <span class="speedtie">0-13 Speedties</span>
+                    </div>
+
+                    <ul>
+                        <li>If Growl turn 1 and <24 Atk, Tail Whip x2</li>
+                        <li>If Growl turn 2/3 and <24 Atk, Tail Whip x1</li>
+                    </ul>
+                </section></li>
+        </ul>
+    </ul>
+    <h2>Route 1</h2>
+    <section id="r1">
+
+    </section>
+    <img src="img/carbos.png" alt="carbos">
+    <h2>Viridian Forest</h2>
+    <label for="ctch">Need to catch: </label><select name="ctch" id="ctch">
+    <option value="none">None</option>
+    <option value="rat">Rat</option>
+    <option value="bird">Bird</option>
+    <option value="both">Both</option>
+</select><br>
+    <label for="speevs">Speed EVs: </label><input type="number" id="speevs" value="2" min="1" max="2"><br>
+</select>
+    <section id="viridian">
+
+    </section>
+    <h2>Pewter City</h2>
+    <section id="pewter">
+
+    </section>
+    <ul>
+        <li>Buy:</li>
+        <ul>
+            <li>8x Potion (↓)</li>
+            <li>3x Antidote (↓)</li>
+            <li>3x Awakening (↓↓)</li>
+            <li>3x Repel (↓↓↓)</li>
+        </ul>
+        <br>
+        <li>Buy if you need Paras (FireRed only):</li>
+        <ul>
+            <li>7x Potion (↓)</li>
+            <li>3x Antidote (↓)</li>
+            <li>3x Paralyze Heal (↓)</li>
+            <li>3x Awakening (↓)</li>
+            <li>3x Repel (↓↓↓)</li>
+        </ul>
+    </ul>
+    <h2>Route 3</h2>
+    <section id="r3">
+
+    </section>
+    <h2>Mt. Moon</h2>
+    <label>Pick your optional <u>before</u> you grab Persim Berry:</label>
+    <ul id="whichoptional"></ul><br>
+
+    <input type="radio" id="robby" name="moonoptional" value="robby">
+    <label for="robby">Bug Catcher Robby</label><br>
+
+    <input type="radio" id="josh" name="moonoptional" value="josh" checked>
+    <label for="josh">Youngster Josh</label><br>
+
+    <input type="radio" id="rocket" name="moonoptional" value="rocket">
+    <label for="rocket">Wisky Wocket</label>
+
+    <ul>
+        <li>Run up 8 tiles, then</li>
+        <ul>
+            <li>Register <b>TM Case</b></li>
+            <li>Equip Persim Berry if you got it.</li>
+            <li>Use Repel</li>
+        </ul>
+        <section id="mtmoon">
+
+        </section>
+    </ul>
+    <h2>Route 4</h2>
+    <ul>
+        <li>Talk to the Karate Man on the right and teach Mega Kick over Withdraw (Slot 4).</li>
+        <section id="sandshrew"></section>
+    </ul>
+    <h2>Cerulean City</h2>
+    <ul>
+        <li>Grab hidden Rare Candy.</li>
+        <li>Open your bag</li>
+        <ul>
+            <li>Rare Candy to level 20.</li>
+            <li>Teach Bite over Bubble (Slot 3).</li>
+            <li>Use 2x Potion.</li>
+        </ul>
+        <li><h3>Misty</h3></li>
+        <ul>
+            <li>Staryu: Bite x2</li>
+            <ul>
+                <li>93% to 2HKO</li>
+            </ul>
+            <li id="starmiee"></li>
+        </ul><br>
+        <li>Teach Water Pulse over Tackle (Slot 2).</li>
+        <li>Heal for Rival so you can survive a Quick Attack and Vine Whip.</li>
+        <li><h3>Rival 2</h3></li>
+        <ul id="rival2">
+
+        </ul>
+        <li><h3>Bug Catcher Cale</h3></li>
+        <ul>
+            <li>Caterpie: Bite</li>
+            <li>Weedle: Bite</li>
+            <li>Metapod: Bite</li>
+            <li>Kakuna: Bite</li>
+        </ul>
+        <li><h3>Lass Ali</h3></li>
+        <ul>
+            <li>Pidgey: Bite</li>
+            <li>Oddish: Mega Kick</li>
+            <li>Bellsprout: Bite</li>
+            <ul id="torrent23"></ul>
+        </ul>
+        <li><h3>Youngster Timmy</h3></li>
+        <ul>
+            <li>Sandshrew: Bite</li>
+            <li>Ekans: Water Pulse</li>
+            <li>Can Water Gun everything from here in Torrent</li>
+        </ul>
+        <li><h3>Lass Reli</h3></li>
+        <ul>
+            <li>Nidoran M: <span class="torrent">Water Gun</span>/Water Pulse</li>
+            <li>Nidoran F: <span class="torrent">Water Gun</span>/Water Pulse</li>
+        </ul>
+        <li><h3>Camper Ethan</h3></li>
+        <ul>
+            <li>Mankey: <span class="torrent">Water Gun</span>/Water Pulse</li>
+        </ul>
+        <li><h3>Rocket Grunt</h3></li>
+        <ul>
+            <li>Ekans: <span class="torrent">Water Gun</span>/Water Pulse</li>
+            <ul id="torrent24"></ul>
+            <li>Zubat: <span class="torrent">Water Gun</span>/Water Pulse</li>
+        </ul><br>
+        <li><u>Go above the Hiker and grab the hidden Elixir.</u></li>
+        <li><h3>Hiker Wayne</h3></li>
+        <ul>
+            <li>Onix: Water Gun</li>
+        </ul>
+        <li><h3>Picknicker Kelsey</h3></li>
+        <ul>
+            <li>Nidoran M: Water Pulse</li>
+            <li>Nidoran F: Water Pulse</li>
+        </ul>
+        <li><h3>Camper Flint</h3></li>
+        <ul>
+            <li>Rattata: Water Pulse</li>
+            <li>Ekans: Water Pulse</li>
+            <ul>
+                <li>If you hit Bang special, then Bite x3, Water Gun</li>
+            </ul>
+        </ul>
+        <br>
+        <li><u>Grab the hidden Oran Berry.</u></li>
+        <li><h3>Lass Haley</h3></li>
+        <ul>
+            <li>Oddish: Mega Kick</li>
+            <ul><li>81.25% (13/16) to OHKO at level 25 with Water Pulse Torrent</li></ul>
+            <li>Oddish: Mega Kick</li>
+            <ul><li>37.5% (6/16) to OHKO with Water Pulse Torrent</li></ul>
+            <li>Pidgey: Bite</li>
+            <ul><li>(!) Quick Attack damage: 3</li></ul>
+        </ul>
+        <br>
+        <li><u>Grab the hidden Ether (Risky but can skip if Torrent at 26 + 2 Mega Kick left).</u></li>
+        <li>Ether before Drowzee/Raticate if you need the Mega Kick (Raticate if not in Torrent).</li><br>
+        <li><h3>Rocket Grunt</h3></li>
+        <ul>
+            <li>Machop: Water Pulse</li>
+            <li>Drowzee: Mega Kick</li>
+            <ul>
+                <li>18.75% (3/16) to OHKO with Water Pulse Torrent</li>
+                <li>Headbutt/Confusion damage: 5-7</li>
+            </ul>
+        </ul>
+    </ul>
+    <h2>Route 6</h2>
+    <ul>
+        <li><u>Grab the hidden Rare Candy and consider the Sitrus Berry with low Sp. Def.</u></li>
+        <li><h3>Camper Jeff</h3></li>
+        <ul id="jeff">
+
+        </ul>
+    </ul>
+    <h2>Vermilion City</h2>
+    <ul>
+        <li>Head straight to the mart and buy:</li>
+        <ul>
+            <li>5x Super Potion (↓)</li>
+            <li>3x Paralyze Heal (↓↓)</li>
+            <li>3x Repel (↓↓↓)</li>
+            <ul id="mart"></ul>
+        </ul>
+    </ul>
+    <h2>S.S. Anne</h2>
+    <ul id="ssanne">
+
+    </ul>
+    <h2>Vermilion City</h2>
+    <ul>
+        <li>Press Select to teach Cut to your Rat.</li>
+        <li>Use Rare Candy if you haven't before.</li><br>
+        <li>Equip Sitrus Berry during bag manip or on pause menu before you save if you got it.</li>
+        <li><h3>Gentlemen Tucker</h3></li>
+        <ul><li id="tucker"></li></ul>
+        <li><h3>Surge</h3></li>
+        <ul id="surge">
+
+        </ul><br>
+        <li>Get the <b>Bike Voucher</b>, then run back to Cerulean City.</li>
+        <li><u>Don't forget to heal or unequip Berry if you have to!!!</u></li>
+    </ul>
+    <h2>Route 9-10</h2>
+    <ul>
+        <li><h3>Jr. Trainer Alicia</h3></li>
+        <ul>
+            <li>Oddish: Mega Kick</li>
+            <li>Bellsprout: Bite</li>
+            <li>Oddish: Mega Kick</li>
+            <li>Bellsprout: Bite</li>
+        </ul>
+        <li><h3>Bug Catcher Conner</h3></li>
+        <ul>
+            <li>Caterpie: Water Gun</li>
+            <li>Weedle: Water Gun</li>
+            <li>Venonat: <span class="torrent">Water Pulse</span> (x2)</li>
+            <ul id="veno">
+
+            </ul>
+        </ul><br>
+        <li>Grab these berries if short on Awakening (Chesto Berry) or Paralyze Heal (Cheri Berry).</li>
+        <img src="img/chesto.png" alt="chesto"> <img src="img/cheri.png" alt="cheri"><br><br>
+        <li>Grab this hidden Rare Candy after the Hiker (he has a vision range of 1 tile).</li>
+        <img src="img/r9candy.png" alt="route 9 candy"><br><br>
+        <li>Grab the hidden Super Potion before entering Rock Tunnel.</li>
+    </ul>
+    <h2>Rock Tunnel</h2>
+    <ul id="rt">
+
+    </ul>
+    <h2>Lavender Town</h2>
+    <ul>
+        <li>Head south to the mart and buy:</li>
+        <ul>
+            <li>4x Escape Rope (7x ↓)</li>
+            <li>7x Super Repel (↓)</li>
+        </ul>
+    </ul>
+    <h2>Route 8</h2>
+    <ul>
+        <li><h3>Gamer Rich</h3></li>
+        <ul>
+            <li>Growlithe: Water Gun</li>
+            <li>Vulpix: Water Gun</li>
+            <ul><li>(!) Quick Attack damage: 5(6)</li></ul>
+        </ul>
+    </ul>
+    <h2>Celadon City</h2>
+    <ul id="hideout">
+        
+    </ul>
+    <ul>
+        <li><label>Select your shopping route:</label></li>
+
+        <input type="radio" id="xatk" name="shopping" value="xatk" checked>
+        <label for="xatk">X Attack strats (2-3 Mega Kick left)</label><br>
+
+        <input type="radio" id="xspec" name="shopping" value="xspec">
+        <label for="xspec">X Special strats (low on Mega Kick)</label>
+        <br>
+        <p>Take the elevator to 5F (↓↓) and buy:</p>
+        <ul id="xshopping">
+
+        </ul>
+        <p>Take the elevator back down to 1F (↑↑)</p>
+        <li>After obtaining Fly:</li>
+        <ul>
+            <li>Teach Fly to your bird.</li>
+            <li>Heal to around <b>44 HP</b>.</li>
+            <li>Use Super Repel.</li>
+            <li>Equip Black Glasses.</li>
+            <li>Toss Moon Stone.</li>
+            <li>Scroll to Guard Spec/X Special.</li>
+            <li>Fly to Lavender Town.</li>
+        </ul>
+    </ul>
+    <h2>Lavender Tower</h2>
+    <ul>
+        <li><h3>Rival 4</h3></li>
+        <ul id="r4">
+
+        </ul>
+        <li><h3>Channeler Tammy</h3></li>
+        <ul><li>Haunter: <span class="torrent">Water Gun</span>/Water Pulse</li></ul>
+    </ul>
+    <ul id="xacc"></ul>
+    <ul>
+        <li><h3>Channeler Jennifer</h3></li>
+        <ul><li>Gastly: Water Gun</li></ul>
+        <li><h3>Channeler Emilia</h3></li>
+        <ul><li>Gastly: Water Gun</li></ul><br>
+        <li>Grab this Rare Candy before fighting Marowak.</li>
+        <img src="img/lavendercandy.png" alt="lavender candy">
+    </ul>
+    <ul id="lavender">
+
+    </ul>
+    <ul><li>Fly to Celadon City (cursor should be on Pokemon menu unless you bag manniped).</li></ul>
+    <h2>On the way to Koga</h2>
+    <ul>
+        <li>Grab the <b>Tea</b> from the old lady in the Celadon Mansion.</li><br>
+        <li>Grab this hidden Rare Candy and this hidden Max Elixir.</li>
+        <img src="img/crcandy.png" alt="cycling road candy"> <img src="img/crmaxelixir.png" alt="max elixir"><br><br>
+        <li>Demount and mount bike on this tile.</li>
+        <img src="img/safari%20bike.png" alt="safari demount"><br><br>
+        <li>Use Super Repel before the grass in the second area (two up on menu).</li><br>
+        <li>Grab this Full Restore and optionally this hidden Revive for safety.</li>
+        <img src="img/safari%20full%20restore.png" alt="safari full resotre"> <img src="img/revive.png" alt="revive"><br><br>
+        <li>Fly to Fuchsia and head to the Gym (cursor is on Bag menu).</li>
+    </ul>
+    <h2>Fuschia City</h2>
+    <ul>
+        <li>Teach Surf over Water Gun (Slot 1)</li>
+        <li>Heal to around <b>30 HP</b>.</li>
+        <li><h3>Juggler Klirk</h3></li>
+        <ul>
+            <li>Drowzee: <span class="torrent">Surf</span> or X Special, Surf</li>
+            <li>Drowzee: Surf</li>
+            <li>Kadabra: Surf</li>
+            <li>Drowzee: Surf</li>
+        </ul>
+        <li><h3>Koga</h3></li>
+        <ul id="koga">
+
+        </ul><br>
+        <li>Grab Strength from the warden.</li>
+        <li>Use Super Repel.</li>
+        <li>Heal for Growlithe if you need to X Speed/X Special.</li>
+        <ul id="growlithe">
+
+        </ul>
+        <li>Fly to Pallet Town and Surf south to Cinnabar Island.</li>
+    </ul>
+    <h2>Cinnabar Island</h2>
+    <ul>
+        <li>PRESS DOWN ON MENU.</li><br>
+        <li id="carbos"></li>
+        <img src="img/carbos2.png" alt="carbos"><br><br>
+        <li>Grab this hidden Elixir and TM14 before grabbing the Secret Key on the table.</li>
+        <img src="img/mansionelixir.png" alt="mansion elixir"> <img src="img/blizz.png" alt="blizz"><br><br>
+        <li>Menu:</li>
+            <ul id="carbosblaine">
+
+            </ul><br>
+        <li>Puzzle answers are <b>A, B, B, B, A, B.</b></li><br>
+        <li><h3>Blaine</h3></li>
+        <ul id="blaine">
+
+        </ul><br>
+        <li>Say <b>no</b> to Bill and Fly to Celadon City (cursor is on Bag).</li>
+    </ul>
+    <h2>Celadon City</h2>
+    <ul>
+        <li><h3>Beauty Tamia</h3></li>
+        <ul>
+            <li>Bellsprout: Bite</li>
+            <li>Bellsprout: Bite</li>
+        </ul><br>
+        <li>Cut the bush and menu (cursor is on Pokemon):</li>
+        <ul>
+            <li>(Teach Strength to <u>Nidoran/Sandshrew</u>).</li>
+            <ul><li><b>Cursor is on Bird!!!</b></li></ul>
+            <li>Teach Blizzard over Mega Kick (Slot 4).</li>
+            <li>Rare Candy twice to level 44.</li>
+            <ul id="l44"></ul>
+        </ul>
+        <li><h3>Beauty Lori</h3></li>
+        <ul><li>Exeggcute: Bite</li></ul>
+        <li><h3>Erika</h3></li>
+        <ul id="erika">
+
+        </ul><br>
+        <li>Fly to Celadon City and bike to Silph Co. (cursor is on Bag).</li>
+    </ul>
+    <h2>Silph Co.</h2>
+    <ul id="silph">
+
+    </ul>
+    <h2>Saffron City</h2>
+    <ul>
+        <li>Tile puzzle is <b>Top Left, Bottom Left, Down.</b></li>
+        <li><h3>Sabrina</h3></li>
+        <ul id="dupa">
+
+        </ul>
+    </ul>
+    <h2>Viridian City</h2>
+    <ul>
+        <li>Take the spinny tile on the right.</li>
+        <li><h3>Blackbelt Takashi</h3></li>
+        <ul>
+            <li>Machoke: Surf</li>
+            <ul><li>87.5% (14/16) to OHKO without Torrent.</li></ul>
+            <li>Machop: Surf</li>
+            <li>Machoke: Surf</li>
+        </ul>
+        <li><h3>Cooltrainer Warren</h3></li>
+        <ul>
+            <li>Marowak: <span class="torrent">Water Pulse</span></li>
+            <li>Marowak: <span class="torrent">Water Pulse</span></li>
+            <li>Rhyhorn: <span class="torrent">Water Pulse</span></li>
+            <li>Nidorina: <span class="torrent">Water Pulse</span>/Surf</li>
+            <li>Nidoqueen: <span class="torrent">Water Pulse</span>/Surf</li>
+        </ul>
+        <li><h3>Giovanni</h3></li>
+        <ul>
+            <li>Rhyhorn: Water Pulse</li>
+            <ul><li>If less than 5 PP on Surf, you can Water Pulse everything in Torrent.</li></ul>
+            <li>Dugtrio: Water Pulse</li>
+            <li>Nidoqueen: <span class="torrent">Water Pulse</span>/Surf</li>
+            <li>Nidoking: <span class="torrent">Water Pulse</span>/Surf</li>
+            <li>Rhyhorn: Surf/Water Pulse</li>
+            <ul><li>Water Pulse if only 3 Surf PP left.</li></ul>
+        </ul><br>
+        <li>Use Full Restore before fighting the rival (cursor is on Pokemon).</li>
+    </ul>
+    <ul id="r6">
+
+    </ul>
+    <h2>Victory Road</h2>
+    <ul>
+        <li>Teach Strength over Water Pulse (Slot 2) if you do not have a Nidoran/Sandshrew.</li>
+        <li>Use Super Repel</li><br>
+        <li>Box heal and deposit HM slaves (from Move menu).</li>
+        <li>Buy max Full Restore (↓↓).</li>
+    </ul>
+    <h2>Elite Four</h2>
+    <ul>
+        <li><h3>Lorelei</h3></li>
+        <ul>
+            <li>Dewgong: X Special x4, Bite, Bite</li>
+            <ul>
+                <li>Surf if low roll from first Bite.</li>
+                <li>Check your X Speed count here.</li>
+            </ul>
+            <li>Cloyster: Bite</li>
+            <li>Slowbro: Bite</li>
+            <li>Jynx: Surf</li>
+            <li>Lapras: Bite x3</li>
+            <ul><li id="kurwa"></li></ul>
+        </ul><br>
+<!--        <ul id="brunostrats">-->
+
+<!--        </ul>-->
+        <li id="highmid"></li>
+        <li><h3>Bruno</h3></li>
+        <ul id="bruno">
+
+        </ul><br>
+        <li>Heal with Oran Berry/Potion if in Shadow Punch range.</li>
+        <ul id="agathatorrent"></ul>
+        <li><h3>Agatha</h3></li>
+        <ul id="agatha">
+
+        </ul><br>
+        <li>Full Restore before Lance.</li>
+        <li id="hyperbeam"></li>
+        <li><h3>Lance</h3></li>
+        <ul id="lance">
+
+        </ul><br>
+        <li>Heal to <b>full HP</b> and use Elixir before Champion.</li>
+        <li><h3>Champion</h3></li>
+        <ul id="champ">
+
+        </ul>
+    </ul>
+
+</main>
+<br><br><br>GG :)
+
+<script src="main.js"></script>
+</body>
+</html>
