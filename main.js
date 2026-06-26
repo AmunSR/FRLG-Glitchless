@@ -1755,7 +1755,6 @@ function updateAll() {
     <ul>
         <li>X Special on Muk if <b>60+ HP</b> or if in Weezing kill range after level up.</li>
         <li>Sludge damage: ${muk}</li>
-        <li>Poison damage: pierdol sie</li>
     </ul>
     <li>Koffing: Surf</li>
     <li>Weezing: (Bite), <span class="torrent">Surf</span></li>
