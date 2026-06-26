@@ -432,11 +432,11 @@ function updateAll() {
     if (spe === 25 || spe === 28 || spe === 29 || spe === 31 && evs === 2){
         whichoptional.innerHTML = `
         <li>Please fight Josh.</li>
-        <li>Fight Bug Catcher if your HP ≤ ${plusfor16}</li>
+        <li>Fight Bug Catcher if your HP ≤ ${plusfor16} in torrent for level 16</li>
         `
     } else {
         whichoptional.innerHTML=`
-        <li>Fight Bug Catcher if your HP ≤ ${plusfor16}</li>
+        <li>Fight Bug Catcher if your HP ≤ ${plusfor16} in torrent for level 16</li>
         `
     }
 
