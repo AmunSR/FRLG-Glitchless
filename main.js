@@ -565,6 +565,7 @@ function updateAll() {
                 </ul>
                 <li>Koffing: <span class="torrent">Water Gun</span> (x2)</li>
                 <ul>
+                    <li>Swap Water Gun with Tackle (Select + A + A)</li>
                     <li>87.5% (14/16) to OHKO in Torrent</li>
                     <li>If poisoned, Antidote immediately if you need a Rattata/Sandshrew/Paras. Otherwise skip and revive with a Rare Candy in Cerulean City.
                     </li>
@@ -736,6 +737,7 @@ function updateAll() {
     </div>
     </li>
     <ul>
+        <li>WATER PULSE IS IN SLOT 1</li>
         <li>81.25% (13/16) to OHKO</li>
     </ul>
     <li>Rattata: Water Pulse</li>
@@ -779,7 +781,7 @@ function updateAll() {
 
     const mart = document.querySelector("#mart");
     if (slave === "rat" || slave === "both"){
-        mart.innerHTML = `<li>Skip Paralyze Heal if on Paras shopping route.</li>`
+        mart.innerHTML = `<li>Skip Paralyze Heal if on Paras shopping route.</li><li>Can buy an extra Super Potion here if on Paras shopping route.</li>`
     }
 
     const ssanne = document.querySelector("#ssanne");
@@ -1482,23 +1484,41 @@ function updateAll() {
     let xspecial = '';
 
     if (shoppingroute === "xatk"){
-        if (spe < 25 || spe === 25 && optional !== "josh"){
+        if (spe < 25){
             xspeed = "6";
             xspecial = "17";
-        } else if (spe === 25 && optional === "josh" || spe >= 26 && spe <= 28 || spe === 29 && optional !== "josh"){
+        } else if (spe === 25){
+            if (optional === "josh" && evs >= 1 || optional === "rocket" && evs >= 3 || evs >= 4){
+                xspeed = "5";
+                xspecial = "18";
+            } else {
+                xspeed = "6";
+                xspecial = "17";
+            }
+        } else if (spe >= 26 && spe <= 28){
             xspeed = "5";
             xspecial = "18";
-        } else if (spe === 29 && optional === "josh" || spe >= 30){
+        } else if (spe === 29){
+            if (optional === "josh" || optional === "rocket" && evs >= 2 || evs >= 3){
+                xspeed = "4";
+                xspecial = "19";
+            } else {
+                xspeed = "5";
+                xspecial = "18";
+            }
+        } else if (spe >= 30){
             xspeed = "4";
-            xspecial = "18";
-        } if (slave === "rat" || slave === "both"){
+            xspecial = "19";
+        }
+
+        if (slave === "rat" || slave === "both"){
             xshopping.innerHTML = `
         <li>1x X Attack</li>
         <li>${xspeed}x X Speed (↓↓)</li>
         <li>${xspecial}x X Special (↓)</li>
         <li>5x X Accuracy (↓)</li>
         <li>3x Guard Spec (↓)</li>
-        <ul><li>Buy an extra X Special if on Paras shopping route.</li></ul>
+        <ul><li>Buy an extra X Special if on Paras shopping route and didn't buy an extra Super Potion.</li></ul>
         `
         } else {
             xshopping.innerHTML = `
@@ -1510,13 +1530,29 @@ function updateAll() {
         `
         }
     } else {
-        if (spe < 25 || spe === 25 && optional !== "josh") {
+        if (spe < 25){
             xspeed = "6";
-            xspecial = "20";
-        } else if (spe === 25 && optional === "josh" || spe >= 26 && spe <= 28 || spe === 29 && optional !== "josh") {
+            xspecial = "21";
+        } else if (spe === 25){
+            if (optional === "josh" && evs >= 1 || optional === "rocket" && evs >= 3 || evs >= 4){
+                xspeed = "5";
+                xspecial = "21";
+            } else {
+                xspeed = "6";
+                xspecial = "17";
+            }
+        } else if (spe >= 26 && spe <= 28){
             xspeed = "5";
             xspecial = "21";
-        } else if (spe === 29 && optional === "josh" || spe >= 30) {
+        } else if (spe === 29){
+            if (optional === "josh" || optional === "rocket" && evs >= 2 || evs >= 3){
+                xspeed = "4";
+                xspecial = "21";
+            } else {
+                xspeed = "5";
+                xspecial = "21";
+            }
+        } else if (spe >= 30){
             xspeed = "4";
             xspecial = "21";
         }
@@ -1524,9 +1560,9 @@ function updateAll() {
             xshopping.innerHTML = `
         <li>${xspeed}x X Speed (↓↓)</li>
         <li>${xspecial}x X Special (↓)</li>
-        <li>4x X Accuracy (↓)</li>
+        <li>5x X Accuracy (↓)</li>
         <li>2x Guard Spec (↓)</li>
-        <ul><li>Buy an extra X Special if on Paras shopping route.</li></ul>
+        <ul><li>Buy an extra X Special if on Paras shopping route and didn't buy an extra Super Potion.</li></ul>
         `
         } else {
             xshopping.innerHTML = `
@@ -1755,6 +1791,7 @@ function updateAll() {
     <ul>
         <li>X Special on Muk if <b>60+ HP</b> or if in Weezing kill range after level up.</li>
         <li>Sludge damage: ${muk}</li>
+        <li>Poison damage: pierdol sie</li>
     </ul>
     <li>Koffing: Surf</li>
     <li>Weezing: (Bite), <span class="torrent">Surf</span></li>
@@ -1821,12 +1858,40 @@ function updateAll() {
     let carboblaine = '';
     let carbosabrina = '';
 
-    if (spe === 25 && optional === "josh" || spe >= 26 && spe <= 27 || spe === 28 && optional !== "josh"){
+    if (spe === 25){
+        if (optional === "josh" && evs >= 1 || optional === "rocket" && evs >= 3 || evs >= 4){
+            carbo = "Grab the Carbos for Blaine's Rapidash."
+            carboblaine = "<li>Use Carbos NOW (cursor is on Bird!!!).</li>"
+        } else {
+            carbo = "Skip the Carbos."
+        }
+    } else if (spe >= 26 && spe <= 27){
         carbo = "Grab the Carbos for Blaine's Rapidash."
-        carboblaine = "Use Carbos NOW (cursor is on Bird!!!)."
-    } else if (spe === 29 && optional === "josh" || spe === 30 || spe === 31 && optional === "josh" && evs < 2 || spe === 31 && optional !== "josh"){
+        carboblaine = "<li>Use Carbos NOW (cursor is on Bird!!!).</li>"
+    } else if (spe === 28){
+        if (optional === "josh" || optional === "rocket" && evs >= 2 || evs >= 3){
+            carbo = "Skip the Carbos."
+        } else {
+            carbo = "Grab the Carbos for Blaine's Rapidash."
+            carboblaine = "<li>Use Carbos NOW (cursor is on Bird!!!).</li>"
+        }
+    } else if (spe === 29){
+        if (optional === "josh" || optional === "rocket" && evs >= 2 || evs >= 3){
+            carbo = "Grab the Carbos for Sabrina's Alakazam."
+            carbosabrina = "Use Carbos NOW (cursor <u>might</u> be on Bird)."
+        } else {
+            carbo = "Skip the Carbos."
+        }
+    } else if (spe === 30){
         carbo = "Grab the Carbos for Sabrina's Alakazam."
         carbosabrina = "Use Carbos NOW (cursor <u>might</u> be on Bird)."
+    } else if (spe === 31){
+        if (optional === "josh" && evs >= 2){
+            carbo = "Skip the Carbos."
+        } else {
+            carbo = "Grab the Carbos for Sabrina's Alakazam."
+            carbosabrina = "Use Carbos NOW (cursor <u>might</u> be on Bird)."
+        }
     } else {
         carbo = "Skip the Carbos."
     }
@@ -1834,16 +1899,10 @@ function updateAll() {
     carbos.innerHTML=`
     <u>${carbo}</u>
     `
-    if (spe === 25 && optional === "josh" || spe >= 26 && spe <= 27 || spe === 28 && optional !== "josh"){
         carbosblaine.innerHTML=`
-        <li>${carboblaine}</li>
+        ${carboblaine}
         <li>Use Escape Rope.</li>
         `
-    } else {
-        carbosblaine.innerHTML=`
-        <li>Use Escape Rope.</li>
-        `
-    }
 
     const blaine = document.querySelector("#blaine");
     let bounce = '';
@@ -1882,7 +1941,7 @@ function updateAll() {
         }
     }
 
-    if (spe <= 24 || spe === 25 && optional !== "josh"){
+    if (spe <= 24){
         blaine.innerHTML=`
         <li>Growlithe: X Speed, (X Special), Surf/<span class="torrent">Water Pulse</span></li>
         <ul>
@@ -1899,6 +1958,42 @@ function updateAll() {
         </ul>
         <li>Arcanine: <span class="torrent">Surf</span></li>
         `
+    } else if (spe === 25){
+        if (optional === "josh" && evs >= 1 || optional === "rocket" && evs >= 3 || evs >= 4){
+            blaine.innerHTML=`
+        <li>Growlithe: (X Special), Surf/<span class="torrent">Water Pulse</span></li>
+        <ul>
+            <li>Use X Special if no Torrent for Arcanine and can't take a hit from Rapidash.</li>
+            <li>Use Water Pulse only if low PP on Surf.</li>
+            <li>Take Down damage: ${td}</li>
+            <li>Fire Blast damage: ${gfb}</li>
+        </ul>
+        <li>Ponyta: Surf/<span class="torrent">Water Pulse</span></li>
+        <li>Rapidash: Surf/<span class="torrent">Water Pulse</span></li>
+        <ul>
+            <li>Bounce damage: ${bounce}</li>
+            <li>Fire Blast damage: ${rfp}</li>
+        </ul>
+        <li>Arcanine: <span class="torrent">Surf</span></li>
+        `
+        } else {
+            blaine.innerHTML=`
+        <li>Growlithe: X Speed, (X Special), Surf/<span class="torrent">Water Pulse</span></li>
+        <ul>
+            <li>Use X Special if no Torrent for Arcanine and can't take a hit from Rapidash.</li>
+            <li>Use Water Pulse only if low PP on Surf.</li>
+            <li>Take Down damage: ${td}</li>
+            <li>Fire Blast damage: ${gfb}</li>
+        </ul>
+        <li>Ponyta: Surf/<span class="torrent">Water Pulse</span></li>
+        <li>Rapidash: Surf/<span class="torrent">Water Pulse</span></li>
+        <ul>
+            <li>Bounce damage: ${bounce}</li>
+            <li>Fire Blast damage: ${rfp}</li>
+        </ul>
+        <li>Arcanine: <span class="torrent">Surf</span></li>
+        `
+        }
     } else {
         blaine.innerHTML=`
         <li>Growlithe: (X Special), Surf/<span class="torrent">Water Pulse</span></li>
@@ -2059,14 +2154,16 @@ function updateAll() {
         }
     }
 
-    if (spe === 29 && optional === "josh" || spe === 30 || spe === 31 && optional === "josh" && evs < 2 || spe === 31 && optional !== "josh"){
-        silph.innerHTML=`
+
+    if (spe === 29){
+        if (optional === "josh" || optional === "rocket" && evs >= 2 || evs >= 3){
+            silph.innerHTML=`
         <li>Take the 3F teleporter from above, run down 1 and then left until one before the scientist and pause. Run below him unless he starts to walk down.</li><br>
         <li>On spinner bag manip (cursor is on Pokemon):</li>
         <ul>
             <li>Use Max Elixir.</li>
             <li>Heal to around <b>${heal}</b>.</li>
-            <li>Use Carbos NOW.</li>
+            <li>${carbosabrina}</li>
         </ul>
         <li><h3>Rival 5</h3></li>
         <ul>
@@ -2102,6 +2199,179 @@ function updateAll() {
             <li>Rhyhorn: Water Pulse</li>
         </ul>
         `
+        } else {
+            silph.innerHTML=`
+        <li>Take the 3F teleporter from above, run down 1 and then left until one before the scientist and pause. Run below him unless he starts to walk down.</li><br>
+        <li>On spinner bag manip (cursor is on Pokemon):</li>
+        <ul>
+            <li>Use Max Elixir.</li>
+            <li>Heal to around <b>${heal}</b>.</li>
+        </ul>
+        <li><h3>Rival 5</h3></li>
+        <ul>
+            <li>Pidgeot: X Special x2, X Accuracy, <span class="torrent">Water Pulse</span>/Surf</li>
+            <ul>
+                <li>Wing Attack damage: ${pidgeotwa}</li>
+                <li>(!) Quick Attack damage: ${pidgeotqa}</li>
+            </ul>
+            <li>Venusaur: Blizzard</li>
+            <li>Gyarados: Blizzard</li>
+            <li>Growlithe: Bite</li>
+            <li>Alakazam: <span class="torrent">Water Pulse</span>/Surf</li>
+            <ul><li>Max HP in torrent for level 49: <b>${plusfor49}</b></li></ul>
+        </ul>
+        <li><h3>Rocket Grunt</h3></li>
+        <ul>
+            <li>Cubone: Bite/Water Pulse</li>
+            <ul><li>81.25% (13/16) to OHKO with Bite.</li></ul>
+            <li>Marowak: Water Pulse</li>
+            <li>Drowzee: <span class="torrent">Water Pulse</span></li>
+        </ul>
+        <li><h3>Giovanni</h3></li>
+        <ul>
+            <li>Nidorino: <span class="torrent">Surf</span></li>
+            <ul><li>Stall with X Special if no torrent for level 49 and damage from Venomoth isn't enough.</li></ul>
+            <li>Nidoqueen: <span class="torrent">Surf</span></li>
+            <li>Kangaskhan: <span class="torrent">Surf</span></li>
+            <ul>
+                <li>81.25% (13/16) to OHKO.</li>
+                <li>(!) Fake Out damage: ${fo}</li>
+                <li>Mega Punch damage: ${mp2}</li>
+            </ul>
+            <li>Rhyhorn: Water Pulse</li>
+        </ul>
+        `
+        }
+    } else if (spe === 30){
+        silph.innerHTML=`
+        <li>Take the 3F teleporter from above, run down 1 and then left until one before the scientist and pause. Run below him unless he starts to walk down.</li><br>
+        <li>On spinner bag manip (cursor is on Pokemon):</li>
+        <ul>
+            <li>Use Max Elixir.</li>
+            <li>Heal to around <b>${heal}</b>.</li>
+            <li>${carbosabrina}</li>
+        </ul>
+        <li><h3>Rival 5</h3></li>
+        <ul>
+            <li>Pidgeot: X Special x2, X Accuracy, <span class="torrent">Water Pulse</span>/Surf</li>
+            <ul>
+                <li>Wing Attack damage: ${pidgeotwa}</li>
+                <li>(!) Quick Attack damage: ${pidgeotqa}</li>
+            </ul>
+            <li>Venusaur: Blizzard</li>
+            <li>Gyarados: Blizzard</li>
+            <li>Growlithe: Bite</li>
+            <li>Alakazam: <span class="torrent">Water Pulse</span>/Surf</li>
+            <ul><li>Max HP in torrent for level 49: <b>${plusfor49}</b></li></ul>
+        </ul>
+        <li><h3>Rocket Grunt</h3></li>
+        <ul>
+            <li>Cubone: Bite/Water Pulse</li>
+            <ul><li>81.25% (13/16) to OHKO with Bite.</li></ul>
+            <li>Marowak: Water Pulse</li>
+            <li>Drowzee: <span class="torrent">Water Pulse</span></li>
+        </ul>
+        <li><h3>Giovanni</h3></li>
+        <ul>
+            <li>Nidorino: <span class="torrent">Surf</span></li>
+            <ul><li>Stall with X Special if no torrent for level 49</li></ul>
+            <li>Nidoqueen: <span class="torrent">Surf</span></li>
+            <li>Kangaskhan: <span class="torrent">Surf</span></li>
+            <ul>
+                <li>81.25% (13/16) to OHKO.</li>
+                <li>(!) Fake Out damage: ${fo}</li>
+                <li>Mega Punch damage: ${mp3}</li>
+            </ul>
+            <li>Rhyhorn: Water Pulse</li>
+        </ul>
+        `
+    } else if (spe === 31){
+        if (optional === "josh" && evs >= 2){
+            silph.innerHTML=`
+        <li>Take the 3F teleporter from above, run down 1 and then left until one before the scientist and pause. Run below him unless he starts to walk down.</li><br>
+        <li>On spinner bag manip (cursor is on Pokemon):</li>
+        <ul>
+            <li>Use Max Elixir.</li>
+            <li>Heal to around <b>${heal}</b>.</li>
+        </ul>
+        <li><h3>Rival 5</h3></li>
+        <ul>
+            <li>Pidgeot: X Special x2, X Accuracy, <span class="torrent">Water Pulse</span>/Surf</li>
+            <ul>
+                <li>Wing Attack damage: ${pidgeotwa}</li>
+                <li>(!) Quick Attack damage: ${pidgeotqa}</li>
+            </ul>
+            <li>Venusaur: Blizzard</li>
+            <li>Gyarados: Blizzard</li>
+            <li>Growlithe: Bite</li>
+            <li>Alakazam: <span class="torrent">Water Pulse</span>/Surf</li>
+            <ul><li>Max HP in torrent for level 49: <b>${plusfor49}</b></li></ul>
+        </ul>
+        <li><h3>Rocket Grunt</h3></li>
+        <ul>
+            <li>Cubone: Bite/Water Pulse</li>
+            <ul><li>81.25% (13/16) to OHKO with Bite.</li></ul>
+            <li>Marowak: Water Pulse</li>
+            <li>Drowzee: <span class="torrent">Water Pulse</span></li>
+        </ul>
+        <li><h3>Giovanni</h3></li>
+        <ul>
+            <li>Nidorino: <span class="torrent">Surf</span></li>
+            <ul><li>Stall with X Special if no torrent for level 49 and damage from Venomoth isn't enough.</li></ul>
+            <li>Nidoqueen: <span class="torrent">Surf</span></li>
+            <li>Kangaskhan: <span class="torrent">Surf</span></li>
+            <ul>
+                <li>81.25% (13/16) to OHKO.</li>
+                <li>(!) Fake Out damage: ${fo}</li>
+                <li>Mega Punch damage: ${mp2}</li>
+            </ul>
+            <li>Rhyhorn: Water Pulse</li>
+        </ul>
+        `
+        } else {
+            silph.innerHTML=`
+        <li>Take the 3F teleporter from above, run down 1 and then left until one before the scientist and pause. Run below him unless he starts to walk down.</li><br>
+        <li>On spinner bag manip (cursor is on Pokemon):</li>
+        <ul>
+            <li>Use Max Elixir.</li>
+            <li>Heal to around <b>${heal}</b>.</li>
+            <li>${carbosabrina}</li>
+        </ul>
+        <li><h3>Rival 5</h3></li>
+        <ul>
+            <li>Pidgeot: X Special x2, X Accuracy, <span class="torrent">Water Pulse</span>/Surf</li>
+            <ul>
+                <li>Wing Attack damage: ${pidgeotwa}</li>
+                <li>(!) Quick Attack damage: ${pidgeotqa}</li>
+            </ul>
+            <li>Venusaur: Blizzard</li>
+            <li>Gyarados: Blizzard</li>
+            <li>Growlithe: Bite</li>
+            <li>Alakazam: <span class="torrent">Water Pulse</span>/Surf</li>
+            <ul><li>Max HP in torrent for level 49: <b>${plusfor49}</b></li></ul>
+        </ul>
+        <li><h3>Rocket Grunt</h3></li>
+        <ul>
+            <li>Cubone: Bite/Water Pulse</li>
+            <ul><li>81.25% (13/16) to OHKO with Bite.</li></ul>
+            <li>Marowak: Water Pulse</li>
+            <li>Drowzee: <span class="torrent">Water Pulse</span></li>
+        </ul>
+        <li><h3>Giovanni</h3></li>
+        <ul>
+            <li>Nidorino: <span class="torrent">Surf</span></li>
+            <ul><li>Stall with X Special if no torrent for level 49</li></ul>
+            <li>Nidoqueen: <span class="torrent">Surf</span></li>
+            <li>Kangaskhan: <span class="torrent">Surf</span></li>
+            <ul>
+                <li>81.25% (13/16) to OHKO.</li>
+                <li>(!) Fake Out damage: ${fo}</li>
+                <li>Mega Punch damage: ${mp3}</li>
+            </ul>
+            <li>Rhyhorn: Water Pulse</li>
+        </ul>
+        `
+        }
     } else {
         silph.innerHTML=`
         <li>Take the 3F teleporter from above, run down 1 and then left until one before the scientist and pause. Run below him unless he starts to walk down.</li><br>
@@ -2163,13 +2433,46 @@ function updateAll() {
         }
     }
 
-    if (spe === 29 && optional === "josh" || spe >= 30){
+    if (spe === 29){
+        if (optional === "josh" || optional === "rocket" && evs >= 2 || evs >= 3){
+            dupa.innerHTML=`
+        <li>Kadabra: <span class="torrent">Surf</span></li>
+        <li>Mr. Mime: <span class="torrent">Surf</span></li>
+        <li>Venomoth: <span class="torrent">Surf</span></li>
+        <li>Alakazam: <span class="torrent">Surf</span></li>
+        `
+        } else {
+            dupa.innerHTML=`
+        <li>Kadabra: <span class="torrent">Surf</span></li>
+        <li>Mr. Mime: <span class="torrent">Surf</span></li>
+        <li>Venomoth: X Speed, <span class="torrent">Surf</span></li>
+        <ul><li>Psybeam damage: ${venomoth}</li></ul>
+        <li>Alakazam: <span class="torrent">Surf</span></li>
+        `
+        }
+    } else if (spe === 30){
         dupa.innerHTML=`
         <li>Kadabra: <span class="torrent">Surf</span></li>
         <li>Mr. Mime: <span class="torrent">Surf</span></li>
         <li>Venomoth: <span class="torrent">Surf</span></li>
         <li>Alakazam: <span class="torrent">Surf</span></li>
         `
+    } else if (spe === 31){
+        if (optional === "josh" && evs >= 2){
+            dupa.innerHTML=`
+        <li>Kadabra: <span class="torrent">Surf</span></li>
+        <li>Mr. Mime: <span class="torrent">Surf</span></li>
+        <li>Venomoth: <span class="torrent">Surf</span></li>
+        <li>Alakazam: <span class="torrent">Surf</span></li>
+        `
+        } else {
+            dupa.innerHTML=`
+        <li>Kadabra: <span class="torrent">Surf</span></li>
+        <li>Mr. Mime: <span class="torrent">Surf</span></li>
+        <li>Venomoth: <span class="torrent">Surf</span></li>
+        <li>Alakazam: <span class="torrent">Surf</span></li>
+        `
+        }
     } else {
         dupa.innerHTML=`
         <li>Kadabra: <span class="torrent">Surf</span></li>
