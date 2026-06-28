@@ -3156,7 +3156,7 @@ function updateAll() {
     <ul>
         <li>(!) Extreme Speed damage: ${es}</li>
     </ul><br>
-    <li><b>Yolo Champ</b></li>
+    <li><b>"Yolo" Champ</b></li>
     <ul>
         <li><u>Make sure you have at least 4 Blizzard PP!!</u></li>
         <li>Pidgeot: Guard Spec, X Accuracy X Special x2, X Speed, Blizzard/<span class="torrent">Surf</span></li>
