@@ -94,8 +94,8 @@ const rules = [
     ["Withdraw", "water"],
     ["Tackle", "normal"],
     ["Scratch", "normal"],
-    ["Poison", "poison"],
     ["Poison Sting", "poison"],
+    ["Poison", "poison"],
     ["Tail Whip", "normal"],
     ["Water Gun", "water"],
     ["Rock Tomb", "rock"],
@@ -142,6 +142,7 @@ const rules = [
     ["Ancient Power", "rock"],
     ["Extreme Speed", "normal"],
     ["Aerial Ace", "blue"],
+    ["Absorb", "grass"],
 
     // items
     ["Antidote", "antidote"],
