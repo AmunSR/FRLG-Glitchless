@@ -646,6 +646,8 @@ function updateAll() {
             } else {
                 ratqa = "5-6(7)";
             }
+        } else {
+            ratqa = "5-6(7)"
         }
     } else {
         if (nature === "mild"){
