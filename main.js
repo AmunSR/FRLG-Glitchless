@@ -68,43 +68,21 @@ function updateAll() {
     const viridian = document.querySelector("#viridian");
     let antidote = '';
 
-    if (nature === "mild" && def > 6) {
-        if ((hp > 2 && hp < 24) || (hp > 24 && hp < 31)) {
-            antidote = 6;
-        } else if (hp === 24 || hp === 31) {
-            antidote = 5;
+    if (nature === "mild" && def >= 7 || nature !== "mild" && def <= 6){
+        if (hp <= 2){
+            antidote = "7";
+        } else if (hp === 24 || hp === 31){
+            antidote = "5";
+        } else {
+            antidote = "6";
         }
-    } else if ((nature === "rash" && def < 7) || (nature === "modest" && def < 7)) {
-        if (hp < 3) {
-            antidote = 7;
-        } else if ((hp > 2 && hp < 24) || (hp > 24 && hp < 31)) {
-            antidote = 6;
-        }
-    } else if ((nature === "rash" && def > 6) || (nature === "modest" && def > 6)) {
-        if (hp < 2) {
-            antidote = 6;
-        } else if ((hp > 1 && hp < 24) || (hp > 24 && hp <= 31)) {
-            antidote = 5;
-        } else if (hp === 24) {
-            antidote = 4;
-        }
-    } else if (nature === "mild" && hp < 7) {
-        if (def < 4) {
-            if (hp === 0) {
-                antidote = 8;
-            } else if ((hp > 0 && hp < 24) || (hp > 24 && hp <= 31)) {
-                antidote = 7;
-            } else if (hp === 24) {
-                antidote = 6;
-            }
-        } else if (def > 3 && def < 7) {
-            if (hp === 0) {
-                antidote = 7;
-            } else if (hp > 0 && hp < 31) {
-                antidote = 6;
-            } else if (hp === 31) {
-                antidote = 6;
-            }
+    } else if (nature !== "mild" && def >= 7) {
+        if (hp <= 1){
+            antidote = "6";
+        } else if (hp === 24){
+            antidote = "4";
+        } else {
+            antidote = "5"
         }
     }
 
