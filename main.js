@@ -1,4 +1,10 @@
-//im an amateur and not a programmer. i do realize that this whole code could have been probably written way more better. im not responsible for your heart attack caused by looking at this code
+//im an amateur and not a programmer. i do realize that this whole code could have been probably written way better. im not responsible for your heart attack caused by looking at this code
+
+window.addEventListener('keydown', function(e) {
+    if (e.key === ' ' && e.target === document.body) {
+        e.preventDefault();
+    }
+});
 
 const nat = document.querySelector("#nat");
 const healpoints = document.querySelector("#healpoints");
@@ -3207,4 +3213,3 @@ document.querySelectorAll('input[type="number"]').forEach(inp => {
 
 btn.addEventListener("click", updateAll);
 updateAll();
-
