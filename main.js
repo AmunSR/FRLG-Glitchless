@@ -54,6 +54,7 @@ function updateAll() {
             </ul>
             <li>Swap Tail Whip with Tackle turn 1 before reaching level 7 (Select + A + A).</li>
             <li>Catch Pidgey/Rattata if you come across them (Bubble/Tackle once to weaken).</li>
+            <li>Look at the chart below and decide for how much Speed EVs you should aim for (including Moon optional):</li>
         </ul>`;
     } else {
         r1.innerHTML = `
@@ -62,6 +63,7 @@ function updateAll() {
             <li>Kill any level 2 or 3 Pidgey/Rattata along the way (<b>do not</b> kill level 2 Pidgey + level 2 something).</li>
             <li>Swap Tail Whip with Tackle turn 1 before reaching level 7 (Select + A + A).</li>
             <li>Catch Pidgey/Rattata if you come across them (Bubble/Tackle once to weaken).</li>
+            <li>Look at the chart below and decide for how much Speed EVs you should aim for (including Moon optional):</li>
         </ul>`;
     }
 
@@ -89,8 +91,9 @@ function updateAll() {
     if (hp < 12) {
         viridian.innerHTML = `
         <ul>
-            <li>Grab the Antidote and optionally the Potion.</li>
-            <li>Let the Bug Catcher walk to you from the middle tile if not grabbing the Potion.</li>
+            <li>Grab the Antidote and optionally the grass Potion.</li>
+            <li>Let the Bug Catcher walk to you from the middle tile if not grabbing the grass Potion.</li>
+            <li>Grab 2x Potion if on Paras shopping route.</li>
             <li><h3>Bug Catcher Sammy</h3></li>
             <ul>
                 <li>Weedle: Tail Whip, Tackle spam</li>
@@ -107,8 +110,9 @@ function updateAll() {
     } else {
         viridian.innerHTML = `
         <ul>
-            <li>Grab the Antidote and optionally the Potion.</li>
-            <li>Let the Bug Catcher walk to you from the middle tile if not grabbing the Potion.</li>
+            <li>Grab the Antidote and optionally the grass Potion.</li>
+            <li>Let the Bug Catcher walk to you from the middle tile if not grabbing the grass Potion.</li>
+            <li>Grab 2x Potion if on Paras shopping route.</li>
             <li><h3>Bug Catcher Sammy</h3></li>
             <ul>
                 <li>Weedle: Tail Whip, Tackle spam</li>
@@ -402,28 +406,27 @@ function updateAll() {
     let koffings = '';
     let paras = '';
     let speedtievoltorb = '';
-    let s15 = Math.floor(((2 * 44 + hp + Math.floor(3 / 4)) * 15) / 100) + 15 + 10;
     let w16 = Math.floor(((2 * 59 + hp + Math.floor(6 / 4)) * 16) / 100) + 16 + 10;
-    let t15 = Math.floor(s15/3);
-    let plusfor16 = t15 - (w16 - s15);
+    let t16 = Math.floor(w16/3);
+    let plusfor16 = t16 - caterpiehp - 5;
 
     if (spe === 25 || spe === 28 || spe === 29 || spe === 31 && evs === 2){
         whichoptional.innerHTML = `
         <li>Please fight Josh.</li>
-        <li>Fight Bug Catcher if your HP ≤ ${plusfor16} in torrent for level 16</li>
+        <li>Fight Bug Catcher if your HP ≤ ${plusfor16} to keep torrent for level 16</li>
         `
     } else {
         whichoptional.innerHTML=`
-        <li>Fight Bug Catcher if your HP ≤ ${plusfor16} in torrent for level 16</li>
+        <li>Fight Bug Catcher if your HP ≤ ${plusfor16} to keep torrent for level 16</li>
         `
     }
 
 
 
     if (hp <= 23 || hp >= 26 && hp <= 29){
-        caterpiehp = '2';
+        caterpiehp = 2;
     } else {
-        caterpiehp = '3';
+        caterpiehp = 3;
     }
 
     if (nature === "mild" && def <= 7){
@@ -488,7 +491,7 @@ function updateAll() {
                 <li>Caterpie: <span class="torrent">Water Gun</span></li>
                 <li>Caterpie: <span class="torrent">Water Gun</span></li>
                 <ul>
-                    <li>+${caterpiehp} HP upon level up and +5 HP upon evolution</li>
+                    <li><b>+${caterpiehp} HP</b> upon level up and <b>+5 HP</b> upon evolution</li>
                 </ul>
             </ul>
             <li><h3>Youngster Josh</h3></li>
@@ -646,8 +649,6 @@ function updateAll() {
             } else {
                 ratqa = "5-6(7)";
             }
-        } else {
-            ratqa = "5-6(7)"
         }
     } else {
         if (nature === "mild"){
@@ -1244,7 +1245,7 @@ function updateAll() {
     </ul><br>
     <img src="img/rt4.png" alt="rock tunnel 4"><br><br>
     <li><u>Elixir now on Repel menu if you haven't before.</u></li><br>
-    <li>Jr Trainer Sofia</li>
+    <li><h3>Jr Trainer Sofia</h3></li>
     <ul>
         <li>Jigglypuff: <span class="torrent">Water Gun</span>/Water Pulse</li>
         <li>Pidgey: <span class="torrent">Water Gun</span>/Water Pulse</li>
@@ -2786,9 +2787,9 @@ function updateAll() {
     if (spe >= 30){
         if (spe === 31 && optional === "josh" && evs === 2){
             highmid.innerHTML=`
-            <li><b>${high}+ HP:</b> Do High HP Bruno strategy.</li>
-            <li><b>${mid}-${intomp} HP:</b> Do Mid HP Bruno strategy.</li>
-            <li><b>${rtintomp}- HP:</b> Full Restore turn 1 and do High HP Bruno strategy.</li>
+            <li><b>~${high}+ HP:</b> Do High HP Bruno strategy.</li>
+            <li><b>~${mid}-${intomp} HP:</b> Do Mid HP Bruno strategy.</li>
+            <li><b>~${rtintomp}- HP:</b> Full Restore turn 1 and do High HP Bruno strategy.</li>
             <ul><li><b>Need 3x X Speed in your inventory for High HP Bruno strategy.</b></li></ul>
             `
         } else {
@@ -2798,9 +2799,9 @@ function updateAll() {
         }
     } else {
         highmid.innerHTML=`
-            <li><b>${high}+ HP:</b> Do High HP Bruno strategy.</li>
-            <li><b>${mid}-${intomp} HP:</b> Do Mid HP Bruno strategy.</li>
-            <li><b>${rtintomp}- HP:</b> Full Restore turn 1 and do High HP Bruno strategy.</li>
+            <li><b>~${high}+ HP:</b> Do High HP Bruno strategy.</li>
+            <li><b>~${mid}-${intomp} HP:</b> Do Mid HP Bruno strategy.</li>
+            <li><b>~${rtintomp}- HP:</b> Full Restore turn 1 and do High HP Bruno strategy.</li>
             <ul><li><b>Need 3x X Speed in your inventory for High HP Bruno strategy.</b></li></ul>
             `
     }
