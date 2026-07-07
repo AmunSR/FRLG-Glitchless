@@ -1549,7 +1549,10 @@ function updateAll() {
         <li>${xspecial}x X Special (↓)</li>
         <li>5x X Accuracy (↓)</li>
         <li>2x Guard Spec (↓)</li>
-        <ul><li>Buy an extra X Special if on Paras shopping route and didn't buy an extra Super Potion.</li></ul>
+        <ul>
+        <li>Alternatively buy -1 X Accuracy, +1 Guard Spec for safety.</li>
+        <li>Buy an extra X Special if on Paras shopping route and didn't buy an extra Super Potion.</li>
+        </ul>
         `
         } else {
             xshopping.innerHTML = `
@@ -1557,6 +1560,7 @@ function updateAll() {
         <li>${xspecial}x X Special (↓)</li>
         <li>4x X Accuracy (↓)</li>
         <li>2x Guard Spec (↓)</li>
+        <ul><li>Alternatively buy -1 X Accuracy, +1 Guard Spec for safety.</li></ul>
         `
         }
     }
@@ -1636,6 +1640,7 @@ function updateAll() {
         r4.innerHTML=`
         <li>Pidgeotto: X Special x2, Bite</li>
         <ul>
+            <li>Guard Spec turn 1 if you have 3x</li>
             <li>Only use one X Special if in high enough HP to tank an Overgrow Razor Leaf and Thrash.</li>
             <li>Use an X Accuracy on last turn if you get hit by Sand Attack (Yolo if you get hit by it twice).</li>
             <li>(!) Quick Attack damage: 7-8(9)</li>
