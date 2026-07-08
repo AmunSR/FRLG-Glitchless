@@ -94,8 +94,9 @@ function updateAll() {
         }
     }
 
-    if (hp < 12) {
-        viridian.innerHTML = `
+    if (evs < 2){
+        if (hp < 12) {
+            viridian.innerHTML = `
         <ul>
             <li>Grab the Antidote and optionally the grass Potion.</li>
             <li>Let the Bug Catcher walk to you from the middle tile if not grabbing the grass Potion.</li>
@@ -105,34 +106,67 @@ function updateAll() {
                 <li>Weedle: Tail Whip, Tackle spam</li>
                 <ul>
                     <li>Swap Tail Whip with Tackle turn 1 if you haven't already (Right + Select, A + A).</li>
-                    <li>Spam Bubble if level 7.</li>
                     <li>Poison Sting damage: 3(4)</li>
                     <li>Poison damage at level 6: 2</li>
+                </ul>
+                <li>If poisoned, use Antidote at <b>${antidote} HP</b> after the fight.</li>
+            </ul>
+        </ul>`;
+        } else {
+            viridian.innerHTML = `
+        <ul>
+            <li>Grab the Antidote and optionally the grass Potion.</li>
+            <li>Let the Bug Catcher walk to you from the middle tile if not grabbing the grass Potion.</li>
+            <li>Grab 2x Potion if on Paras shopping route.</li>
+            <li><h3>Bug Catcher Sammy</h3></li>
+            <ul>
+                <li>Weedle: Tail Whip, Tackle spam</li>
+                <ul>
+                    <li>Swap Tail Whip with Tackle turn 1 if you haven't already (Right + Select, A + A).</li>
+                    <li>Poison Sting damage: 3(4)</li>
+                    <li>Poison damage at level 6: 2</li>
+                </ul>
+                <li>If poisoned, use Antidote at <b>${antidote} HP</b> after the fight.</li>
+            </ul>
+        </ul>`;
+        }
+    } else {
+        if (hp < 12) {
+            viridian.innerHTML = `
+        <ul>
+            <li>Grab the Antidote and optionally the grass Potion.</li>
+            <li>Let the Bug Catcher walk to you from the middle tile if not grabbing the grass Potion.</li>
+            <li>Grab 2x Potion if on Paras shopping route.</li>
+            <li><h3>Bug Catcher Sammy</h3></li>
+            <ul>
+                <li>Weedle: Bubble spam</li>
+                <ul>
+                    <li>Poison Sting damage: 3(4)</li>
                     <li>Poison damage at level 7: 2</li>
                 </ul>
                 <li>If poisoned, use Antidote at <b>${antidote} HP</b> after the fight.</li>
             </ul>
         </ul>`;
-    } else {
-        viridian.innerHTML = `
+        } else {
+            viridian.innerHTML = `
         <ul>
             <li>Grab the Antidote and optionally the grass Potion.</li>
             <li>Let the Bug Catcher walk to you from the middle tile if not grabbing the grass Potion.</li>
             <li>Grab 2x Potion if on Paras shopping route.</li>
             <li><h3>Bug Catcher Sammy</h3></li>
             <ul>
-                <li>Weedle: Tail Whip, Tackle spam</li>
+                <li>Weedle: Bubble spam</li>
                 <ul>
-                    <li>Swap Tail Whip with Tackle turn 1 if you haven't already (Right + Select, A + A).</li>
-                    <li>Spam Bubble if level 7.</li>
                     <li>Poison Sting damage: 3(4)</li>
-                    <li>Poison damage at level 6: 2</li>
                     <li>Poison damage at level 7: 3</li>
                 </ul>
                 <li>If poisoned, use Antidote at <b>${antidote} HP</b> after the fight.</li>
             </ul>
         </ul>`;
+        }
     }
+
+
 
     const pewter = document.querySelector("#pewter");
     let liam = '';
@@ -162,11 +196,11 @@ function updateAll() {
                     geodude1 = "5(6)";
                     break;
                 case (def < 20):
-                    geodude = "5(6)7";
+                    geodude = "(5)6(7)";
                     geodude1 = "4(5)";
                     break;
                 default:
-                    geodude = "5(6)7";
+                    geodude = "(5)6(7)";
                     geodude1 = "4(5)";
             }
             switch (true) {
@@ -419,11 +453,11 @@ function updateAll() {
     if (spe === 25 || spe === 28 || spe === 29 || spe === 31 && evs === 2){
         whichoptional.innerHTML = `
         <li>Please fight Josh.</li>
-        <li>Fight Bug Catcher if your HP ≤ ${plusfor16} to keep torrent for level 16</li>
+        <li>Fight Bug Catcher if your HP < ${plusfor16} to keep torrent for level 16</li>
         `
     } else {
         whichoptional.innerHTML=`
-        <li>Fight Bug Catcher if your HP ≤ ${plusfor16} to keep torrent for level 16</li>
+        <li>Fight Bug Catcher if your HP < ${plusfor16} to keep torrent for level 16</li>
         `
     }
 
@@ -648,19 +682,27 @@ function updateAll() {
         bulba2 = "15-17(18)";
     }
 
-    if (optional !== "josh") {
-        if (nature === "mild") {
-            if (def <= 13) {
-                ratqa = "7-8(9)";
+
+
+    if (optional !== "josh"){
+        if (nature === "mild"){
+            ratqa = "7-8(9)"
+        } else {
+            if (def <= 13){
+                ratqa = "7-8(9)"
             } else {
-                ratqa = "5-6(7)";
+                ratqa = "5-6(7)"
             }
         }
     } else {
         if (nature === "mild"){
-            ratqa = "5-6(7)";
-        } else{
-            ratqa = "5-6(7)";
+            ratqa = "7-8(9)"
+        } else {
+            if (def <= 14){
+                ratqa = "7-8(9)"
+            } else {
+                ratqa = "5-6(7)"
+            }
         }
     }
 
