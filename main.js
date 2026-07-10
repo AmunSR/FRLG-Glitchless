@@ -323,10 +323,10 @@ function updateAll() {
     }
     switch (slave) {
         case "bird":
-            r3slaves = '<li>Catch a <b>BIRD</b> here (Bubble to weaken, Tackle if in torrent).</li>';
+            r3slaves = '<li>Catch a <b>BIRD</b> here (Bubble if lv7-8, Tackle if lv6).</li>';
             break;
         case "both":
-            r3slaves = '<li>Catch a <b>BIRD</b> (Bubble to weaken, Tackle if in torrent) and optionally Nidoran (Bubble to weaken) here.</li>';
+            r3slaves = '<li>Catch a <b>BIRD</b> (Bubble if lv7-8, Tackle if lv6) and optionally Nidoran (Bubble to weaken) here.</li>';
             break
     }
 
@@ -454,10 +454,12 @@ function updateAll() {
         whichoptional.innerHTML = `
         <li>Please fight Josh.</li>
         <li>Fight Bug Catcher if your HP < ${plusfor16} to keep torrent for level 16</li>
+        <li>Note: if you hit Nerd by accident, select Josh and substract 2 EVs from Viridian section.</li>
         `
     } else {
         whichoptional.innerHTML=`
         <li>Fight Bug Catcher if your HP < ${plusfor16} to keep torrent for level 16</li>
+        <li>Note: if you hit Nerd by accident, select Josh and substract 2 EVs from Viridian section.</li>
         `
     }
 
