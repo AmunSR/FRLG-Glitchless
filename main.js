@@ -446,19 +446,23 @@ function updateAll() {
     let koffings = '';
     let paras = '';
     let speedtievoltorb = '';
+    let s15 = Math.floor(((2 * 44 + hp + Math.floor(3 / 4)) * 15) / 100) + 15 + 10;
+    let s16 = Math.floor(((2 * 44 + hp + Math.floor(5 / 4)) * 16) / 100) + 16 + 10;
     let w16 = Math.floor(((2 * 59 + hp + Math.floor(6 / 4)) * 16) / 100) + 16 + 10;
     let t16 = Math.floor(w16/3);
-    let plusfor16 = t16 - caterpiehp - 5;
+    let plusfor15 = w16 - s15;
+    let plusfor16 = w16 - s16;
+    let fbc = t16 - caterpiehp - plusfor15;
 
     if (spe === 25 || spe === 28 || spe === 29 || spe === 31 && evs === 2){
         whichoptional.innerHTML = `
         <li>Please fight Josh.</li>
-        <li>Fight Bug Catcher if your HP < ${plusfor16} to keep torrent for level 16</li>
+        <li>Fight Bug Catcher if your HP ≤ ${fbc} to keep torrent for level 16</li>
         <li>Note: if you hit Nerd by accident, select Josh and substract 2 EVs from Viridian section.</li>
         `
     } else {
         whichoptional.innerHTML=`
-        <li>Fight Bug Catcher if your HP < ${plusfor16} to keep torrent for level 16</li>
+        <li>Fight Bug Catcher if your HP ≤ ${fbc} to keep torrent for level 16</li>
         <li>Note: if you hit Nerd by accident, select Josh and substract 2 EVs from Viridian section.</li>
         `
     }
@@ -533,7 +537,7 @@ function updateAll() {
                 <li>Caterpie: <span class="torrent">Water Gun</span></li>
                 <li>Caterpie: <span class="torrent">Water Gun</span></li>
                 <ul>
-                    <li><b>+${caterpiehp} HP</b> upon level up and <b>+5 HP</b> upon evolution</li>
+                    <li><b>+${caterpiehp} HP</b> upon level up and <b>+${plusfor16} HP</b> upon evolution</li>
                 </ul>
             </ul>
             <li><h3>Youngster Josh</h3></li>
@@ -1476,10 +1480,9 @@ function updateAll() {
         <li><h3>Rocket Grunt (Right)</h3></li>
         <ul>
             <li>Ekans: Water Pulse</li>
-            <li>Sandshrew: Bite</li>
+            <li>Sandshrew: Water Gun</li>
             <ul>
                 <li>${sandrange2} with Bite</li>
-                <li>100% to OHKO with Water Gun</li>
             </ul>
             <li>Arbok: <span class="torrent">Water Pulse</span> or Bite, Water Pulse</li>
              <ul>
@@ -1779,9 +1782,9 @@ function updateAll() {
     </ul>
     <li><h3>Rocket Grunt</h3></li>
     <ul>
-        <li>Zubat: <span class="torrent">Water Gun</span></li>
-        <li>Zubat: <span class="torrent">Water Gun</span></li>
-        <li>Rattata: <span class="torrent">Water Gun</span></li>
+        <li>Zubat: <span class="torrent">Bite</span></li>
+        <li>Zubat: <span class="torrent">Bite</span></li>
+        <li>Rattata: <span class="torrent">Bite</span></li>
         <li>Raticate: <span class="torrent">Water Gun</span>/Water Pulse</li>
     <ul>
         <li>(!) Quick Attack damage: ${ratqa4}</li>
