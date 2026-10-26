@@ -2873,27 +2873,12 @@ function updateAll() {
     let high = intomp + 1;
     let mid = rtintomp + 1;
 
-    if (spe >= 30){
-        if (spe === 31 && optional === "josh" && evs === 2){
-            highmid.innerHTML=`
+    highmid.innerHTML=`
             <li><b>~${high}+ HP:</b> Do High HP Bruno strategy.</li>
             <li><b>~${mid}-${intomp} HP:</b> Do Mid HP Bruno strategy.</li>
             <li><b>~${rtintomp}- HP:</b> Full Restore turn 1 and do High HP Bruno strategy.</li>
             <ul><li><b>Need 3x X Speed in your inventory for High HP Bruno strategy.</b></li></ul>
             `
-        } else {
-            highmid.innerHTML=`
-            <li>Do Mid HP Bruno strategy.</li>
-            `
-        }
-    } else {
-        highmid.innerHTML=`
-            <li><b>~${high}+ HP:</b> Do High HP Bruno strategy.</li>
-            <li><b>~${mid}-${intomp} HP:</b> Do Mid HP Bruno strategy.</li>
-            <li><b>~${rtintomp}- HP:</b> Full Restore turn 1 and do High HP Bruno strategy.</li>
-            <ul><li><b>Need 3x X Speed in your inventory for High HP Bruno strategy.</b></li></ul>
-            `
-    }
 
     bruno.innerHTML=`
     <li><b>High HP Strategy</b></li>
